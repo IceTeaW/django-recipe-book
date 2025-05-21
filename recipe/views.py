@@ -13,7 +13,8 @@ def main_view(request):
     context = {
         'recipes': random_recipes
     }
-    return render(request, 'recipe/main.html', context)
+    return render(request, 'main.html', context) # <--- ЗМІНА ТУТ
+
 def category_detail_view(request, category_id):
     category = get_object_or_404(Category, pk=category_id)
     recipes_in_category = category.categories.all()
@@ -22,4 +23,4 @@ def category_detail_view(request, category_id):
         'category': category,
         'recipes': recipes_in_category,
     }
-    return render(request, 'recipe/category_detail.html', context)
+    return render(request, 'category_detail.html', context) # <--- ЗМІНА ТУТ
