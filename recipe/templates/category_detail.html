@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
-  <h1>Category List</h1>
+  <h1>Категорія: {{ category.name }}</h1>
+  
   <ul>
-    {% for recipe in category %}
-      <li>{{ recipe.title }}</li>
+    {% for recipe in recipes %}
+      <li>
+        {{ recipe.title }}
+      </li>
     {% empty %}
-      <li>No recipes found.</li>
+      <li>У цій категорії рецептів не знайдено.</li>
     {% endfor %}
   </ul>
+
+  <p><a href="{% url 'recipe:main' %}">Повернутися на головну</a></p>
 {% endblock %}
